@@ -5,7 +5,7 @@ import time
 def main():
 
     # Welcome the player
-    print_pokemon("charmander")
+    print_pokemon("charmander.txt")
     print("""\n\nHi! I'm charmander!
     Can you help me evolve by answering these multiplication problems?
     It totally makes sense. I promise.
@@ -14,7 +14,7 @@ def main():
     print("I'll give you up to three wrong answers....")
     time.sleep(1)
 
-    pick_list = [i for i in range(0, 13)]
+    pick_list = [i for i in range(0, 3)]
     tries = 0
     streak = 0
     pokemon = "Charmander"
@@ -34,12 +34,12 @@ def main():
 
         if streak == 10:
             pokemon = "Charmeleon"
-            print_pokemon("charmeleon")
+            print_pokemon("charmeleon.txt")
             print("Your pokemon is evolving! Charmander evolved into charmeleon!")
             print("\nCan you evolve him to charizard? Keep trying!")
         elif streak == 20:
             pokemon = "Charizard"
-            print_pokemon("charizard")
+            print_pokemon("charizard.txt")
             print("Your pokemon is evolving! Charmeleon evolved into charizard!")
             print("\nCan you defeat the Elite Four? Keep trying!")
 
@@ -47,13 +47,13 @@ def main():
 
     print(f"You answered {streak} questions correctly!")
     if streak < 10:
-        print_pokemon("charmander")
+        print_pokemon("charmander.txt")
         print("\n\nThat's...not great. Charmander runs away!")
     elif (streak > 10 and streak < 20):
-        print_pokemon("charmeleon")
+        print_pokemon("charmeleon.txt")
         print("\n\nNot bad! Charmeleon approves!")
     else:
-        print_pokemon("charizard")
+        print_pokemon("charizard.txt")
         print("\n\nAwesome! Charizard approves!")
 
 
