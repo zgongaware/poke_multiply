@@ -73,11 +73,10 @@ def ask_the_question(pick):
     # Ensure it's a number
     try:
         answer = int(answer)
+        return answer
     except (ValueError, TypeError):
         print("Hey! That's not a number!")
-        answer = False
-
-    return answer
+    return 99999
 
 
 def pick_number_pair(pick_list):
