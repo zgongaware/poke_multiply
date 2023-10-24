@@ -14,7 +14,7 @@ def main():
     print("I'll give you up to three wrong answers....")
     time.sleep(1)
 
-    pick_list = [i for i in range(0, 3)]
+    pick_list = [i for i in range(0, 13)]
     tries = 0
     streak = 0
     pokemon = "Charmander"
@@ -25,7 +25,7 @@ def main():
         answer = ask_the_question(pick)
 
         if evaluate_the_answer(answer, pick):
-            print(f"Nice job! {pokemon} is geting stronger...")
+            print(f"Nice job! {pokemon} is getting stronger...")
             streak += 1
         else:
             tries += 1
@@ -35,13 +35,16 @@ def main():
         if streak == 10:
             pokemon = "Charmeleon"
             print_pokemon("charmeleon.txt")
-            print("Your pokemon is evolving! Charmander evolved into charmeleon!")
-            print("\nCan you evolve him to charizard? Keep trying!")
+            print("\nYour pokemon is evolving! Charmander evolved into Charmeleon!")
+            print("\nCan you evolve him to Charizard? Keep trying!")
         elif streak == 20:
             pokemon = "Charizard"
             print_pokemon("charizard.txt")
-            print("Your pokemon is evolving! Charmeleon evolved into charizard!")
+            print("\nYour pokemon is evolving! Charmeleon evolved into Charizard!")
             print("\nCan you defeat the Elite Four? Keep trying!")
+        elif streak == 30:
+            print("\nYou've defeated the Elite Four! You're a pokemon master!")
+            break
 
         time.sleep(1)
 
@@ -65,7 +68,7 @@ def ask_the_question(pick):
     """
 
     # Ask
-    answer = input(f"How about {pick[0]} x {pick[1]} ?")
+    answer = input(f"How about {pick[0]} x {pick[1]} ? ")
 
     # Ensure it's a number
     try:
@@ -84,7 +87,12 @@ def pick_number_pair(pick_list):
     :return:
     """
     # Select a number combination at random
-    pick = choices(pick_list, k=2)
+    # Temporarily modifying to allow for restricting to simpler problems
+    # pick = choices(pick_list, k=2)
+
+    p1 = choices(pick_list, k=1)[0]
+    p2 = choices([0, 1, 2])[0]
+    pick = (p1, p2)
 
     return pick
 
